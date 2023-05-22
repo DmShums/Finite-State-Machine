@@ -48,39 +48,30 @@ class FSM:
         while True:
             time = yield
             if time in range(8):
-                # sleep
-                print("State: Sleep")
                 self.current_state = self.sleep
+                print('State: Sleep')
             elif time in range(8, 10):
-                # eat
-                print("State: Eat")
                 self.current_state = self.eat
+                print('State: Eat')
             elif time in range(10, 14):
-                # study
-                print("State: Study")
                 self.current_state = self.study
+                print('State: Study')
             elif time in range(14, 15):
-                # cry
-                print("State: Cry")
                 self.current_state = self.cry
+                print('State: Cry')
             elif time in range(15, 16):
-                # eat
-                print("State: Eat")
                 self.current_state = self.eat
+                print('State: Eat')
             elif time in range(16, 21):
-                # study
-                print("State: Study")
                 self.current_state = self.study
+                print('State: Study')
             elif time in range(21, 22):
-                # eat
-                print("State: Eat")
                 self.current_state = self.eat
+                print('State: Eat')
             elif time in range(22, 24):
-                # study
-                print("State: Study")
                 self.current_state = self.study
+                print('State: Study')
             else:
-                print("Invalid time range. Exiting FSM.")
                 break
 
     def _sleep(self):
@@ -88,33 +79,36 @@ class FSM:
             time = yield
             if time in range(8):
                 if random.random() > 0.3:
-                    print("State: Sleep")
                     self.current_state = self.sleep
+                    print('State: Sleep')
                 else:
-                    print("State: Alarm")
                     self.current_state = self.alarm
+                    print('State: Alarm')
             else:
-                self.current_state = self.eat if time in range(8, 10) else self.study
+                self.current_state = random.choice([self.eat, self.study])
+                print('State:', self.current_state.__name__)
                 yield None
 
     def _eat(self):
         while True:
             time = yield
             if time in range(8, 10):
-                print("State: Eat")
                 self.current_state = self.eat
+                print('State: Eat')
             else:
-                self.current_state = self.study if time in range(10, 14) or time in range(16, 21) or time in range(22, 24) else self.sleep
+                self.current_state = random.choice([self.study, self.sleep])
+                print('State:', self.current_state.__name__)
                 yield None
 
     def _study(self):
         while True:
             time = yield
             if time in range(10, 14) or time in range(16, 21) or time in range(22, 24):
-                print("State: Study")
                 self.current_state = self.study
+                print('State: Study')
             else:
-                self.current_state = self.eat if time in range(8, 10) else self.sleep
+                self.current_state = random.choice([self.eat, self.sleep])
+                print('State:', self.current_state.__name__)
                 yield None
 
     def _cry_bcs_of_studying(self):
@@ -124,17 +118,16 @@ class FSM:
                 self.current_state = self.cry
                 print('State: Cry')
             else:
-                self.current_state = random.choice([self.eat, self.study])
+                self.current_state = random.choice([self.eat, self.sleep])
                 print('State:', self.current_state.__name__)
                 yield None
 
     def _air_alarm(self):
         while True:
-            if random.random() > 0.9:
-                print("Rockets are still flying...")
+            if random.random() > 0.8:
+                continue
             else:
-                self.current_state = random.choice([self.eat, self.sleep])
-                print('State:', self.current_state.__name__)
+                self.current_state = self.eat
             yield None
 
 if __name__ == '__main__':
@@ -144,4 +137,4 @@ if __name__ == '__main__':
     for hour in time_range:
         print(f"Time: {hour}")
         fsm.send(hour)
-        print('')
+        print()
