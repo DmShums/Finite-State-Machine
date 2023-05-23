@@ -123,7 +123,7 @@ class FSM:
             print(f'\nHour {time}')
             print("State: Alarm")
             rand = random.random()
-            if rand < 0.8:
+            if rand < 0.2:
                 self.current_state = self.eat
             else:
                 self.current_state = self.sleep
