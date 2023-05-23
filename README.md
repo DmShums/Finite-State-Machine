@@ -31,6 +31,8 @@ Model your day in life :) Every hour (you can take smaller time intervals if you
 
 </pre>
 
+![Alt text here](diagram.png)
+
 Output examples:
 
 <pre>
