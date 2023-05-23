@@ -34,76 +34,78 @@ Model your day in life :) Every hour (you can take smaller time intervals if you
 Output examples:
 
 <pre>
-Time: 0
+Hour 0
 State: Sleep
 
-Time: 1
-State: Sleep
-
-Time: 2
-State: Sleep
-
-Time: 3
-State: Sleep
-
-Time: 4
+Hour 1
 State: Alarm
 
-Time: 5
+Hour 2
+State: Eat
 
-Time: 6
-State: _sleep
-
-Time: 7
+Hour 3
 State: Sleep
 
-Time: 8
-State: _study
+Hour 4
+State: Sleep
 
-Time: 9
-State: _eat
+Hour 5
+State: Alarm
 
-Time: 10
+Hour 6
+State: Sleep
 
-Time: 11
-State: _sleep
+Hour 7
+State: Alarm
 
-Time: 12
+Hour 8
+State: Eat
 
-Time: 13
-State: _eat
+Hour 9
+State: Eat
 
-Time: 14
+Hour 10
+State: Eat
 
-Time: 15
-State: _sleep
-
-Time: 16
-
-Time: 17
-State: _study
-
-Time: 18
-
-Time: 19
+Hour 11
 State: Study
 
-Time: 20
+Hour 12
 State: Study
 
-Time: 21
-State: _eat
+Hour 13
+State: Study
 
-Time: 22
+Hour 14
+State: Study
 
-Time: 23
-State: _sleep
+Hour 15
+State: Sleep
+
+Hour 16
+State: Study
+
+Hour 17
+State: Study
+
+Hour 18
+State: Study
+
+Hour 19
+State: Study
+
+Hour 20
+State: Study
+
+Hour 21
+State: Study
+
+Hour 22
+State: Sleep
+
+Hour 23
+State: Study
 </pre>
-
-Notes:
-1) Some lines are empty because states are not defined in some cases
-2) Due to random events states can be present in inappropriate time(for ex. sleep at noon)
-
 
 ## Contributing
 
